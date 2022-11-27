@@ -6,7 +6,7 @@
 /*   By: thrio <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:16:58 by thrio             #+#    #+#             */
-/*   Updated: 2022/11/27 16:11:32 by thrio            ###   ########.fr       */
+/*   Updated: 2022/11/27 17:35:29 by thrio            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*dofree(char *res, char *buffer)
 	char	*tmp;
 
 	tmp = ft_strjoin(res, buffer);
-	free(buffer);
+	free(res);
 	return (tmp);
 }
 
@@ -35,7 +35,7 @@ char	*getnext(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	line = ft_calloc((ft_strlen(buffer) - i - 1), sizeof(char));
+	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
 	i++;
 	j = 0;
 	while (buffer[i])
