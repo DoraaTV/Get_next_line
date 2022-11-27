@@ -6,7 +6,7 @@
 /*   By: thrio <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:19:26 by thrio             #+#    #+#             */
-/*   Updated: 2022/11/27 16:06:02 by thrio            ###   ########.fr       */
+/*   Updated: 2022/11/27 18:29:53 by thrio            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include <stdio.h>
-
 
 char	*get_next_line(int fd);
 char	*dofree(char *res, char *buffer);

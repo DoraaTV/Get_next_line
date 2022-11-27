@@ -6,7 +6,7 @@
 /*   By: thrio <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:16:58 by thrio             #+#    #+#             */
-/*   Updated: 2022/11/27 17:35:29 by thrio            ###   ########.fr       */
+/*   Updated: 2022/11/27 18:29:31 by thrio            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ char	*dofree(char *res, char *buffer)
 
 char	*getnext(char *buffer)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*line;
 
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	if(!buffer[i])
+	if (!buffer[i])
 	{
 		free(buffer);
 		return (NULL);
@@ -47,7 +47,7 @@ char	*getnext(char *buffer)
 char	*getmyline(char *buffer)
 {
 	char	*line;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (!buffer[i])
@@ -68,11 +68,13 @@ char	*getmyline(char *buffer)
 
 char	*reader(int fd, char *res)
 {
-	char 	*buffer;
-	int	bytenb;
+	char	*buffer;
+	int		bytenb;
 
 	if (!res)
 		res = ft_calloc(1, 1);
+	if (ft_strchr(res, '\n'))
+		return (res);
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	bytenb = 1;
 	while (bytenb > 0)
@@ -95,7 +97,7 @@ char	*reader(int fd, char *res)
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
-	char	*str;
+	char		*str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
