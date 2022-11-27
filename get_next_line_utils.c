@@ -6,7 +6,7 @@
 /*   By: thrio <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 14:56:32 by thrio             #+#    #+#             */
-/*   Updated: 2022/11/27 14:59:07 by thrio            ###   ########.fr       */
+/*   Updated: 2022/11/27 15:05:41 by thrio            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,30 @@ void	*ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	return (s);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char		*res;
+	int			i;
+	int			j;
+
+	i = 0;
+	j = 0;
+	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!res)
+		return (NULL);
+	while (s1[i])
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		res[i] = s2[j];
+		i++;
+		j++;
+	}
+	res[i] = '\0';
+	return (res);
 }

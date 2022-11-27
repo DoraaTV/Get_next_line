@@ -6,7 +6,7 @@
 /*   By: thrio <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:16:58 by thrio             #+#    #+#             */
-/*   Updated: 2022/11/27 14:56:12 by thrio            ###   ########.fr       */
+/*   Updated: 2022/11/27 16:11:32 by thrio            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*getnext(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	line = ft_calloc(ft_strlen(buffer) - i - 1);
+	line = ft_calloc((ft_strlen(buffer) - i - 1), sizeof(char));
 	i++;
 	j = 0;
 	while (buffer[i])
@@ -44,7 +44,7 @@ char	*getnext(char *buffer)
 	return (line);
 }
 
-char	*getline(char *buffer)
+char	*getmyline(char *buffer)
 {
 	char	*line;
 	int	i;
@@ -71,8 +71,8 @@ char	*reader(int fd, char *res)
 	char 	*buffer;
 	int	bytenb;
 
-	if (!buf)
-		buf = ft_calloc(1, 1);
+	if (!res)
+		res = ft_calloc(1, 1);
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	bytenb = 1;
 	while (bytenb > 0)
@@ -102,7 +102,7 @@ char	*get_next_line(int fd)
 	buffer = reader(fd, buffer);
 	if (!buffer)
 		return (NULL);
-	str = getline(buffer);
+	str = getmyline(buffer);
 	buffer = getnext(buffer);
-	return (line);
+	return (str);
 }
