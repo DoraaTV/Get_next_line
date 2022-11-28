@@ -6,12 +6,15 @@
 /*   By: thrio <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:19:26 by thrio             #+#    #+#             */
-/*   Updated: 2022/11/27 18:29:53 by thrio            ###   ########.fr       */
+/*   Updated: 2022/11/28 14:09:32 by thrio            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>
