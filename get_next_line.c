@@ -6,7 +6,7 @@
 /*   By: thrio <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:16:58 by thrio             #+#    #+#             */
-/*   Updated: 2022/11/27 18:29:31 by thrio            ###   ########.fr       */
+/*   Updated: 2022/11/29 12:43:45 by thrio            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ char	*reader(int fd, char *res)
 		if (bytenb == -1)
 		{
 			free(buffer);
+			free(res);
 			return (NULL);
 		}
 		buffer[bytenb] = 0;
@@ -99,7 +100,7 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*str;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = reader(fd, buffer);
 	if (!buffer)
